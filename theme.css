@@ -1,4 +1,4 @@
-theme.body {
+body {
   background-color: #FFCC00;
   padding: 20px;
   margin: 0;
@@ -22,6 +22,9 @@ ul.header li a {
   padding: 20px;
   display: inline-block;
 }
+.active {
+  background-color: #FFFF00;
+}
 .content {
   background-color: #FFF;
   padding: 20px;
@@ -32,7 +35,4 @@ ul.header li a {
 }
 .content li {
   margin-bottom: 10px;
-}
-.active {
-  background-color: #0099FF;
 }
