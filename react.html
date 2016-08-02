@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title>1React-app</title>
+  <script src="https://fb.me/react-15.1.0.js"></script>
+  <script src="https://fb.me/react-dom-15.1.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
+
+  
+  <style>
+  	body {
+	  background-color: #FFCC00;
+	  padding: 20px;
+	  margin: 0;
+	}
+	h1, h2, p, ul, li {
+	  font-family: Helvetica, Arial, sans-serif;
+	}
+	ul.header li {
+	  display: inline;
+	  list-style-type: none;
+	  margin: 0;
+	}
+	ul.header {
+	  background-color: #111;
+	  padding: 0;
+	}
+	ul.header li a {
+	  color: #FFF;
+	  font-weight: bold;
+	  text-decoration: none;
+	  padding: 20px;
+	  display: inline-block;
+	}
+	.active {
+	  background-color: #FFFF00;
+	}
+	.content {
+	  background-color: #FFF;
+	  padding: 20px;
+	}
+	.content h2 {
+	  padding: 0;
+	  margin: 0;
+	}
+	.content li {
+	  margin-bottom: 10px;
+	}
+
+  </style>
+  <head>
+  	<body>
+  		<div id="container">
+  			
+  		</div>
+  		<script type="text/babel">
+  			var { Router, Route, IndexRoute, IndexLink, Link } = ReactRouter;
+  			var destination = document.querySelector("#container");
+
+  			var Home = React.createClass({
+  				render: function() {
+  					return (
+  						<div>
+  							<h2>Hello</h2>
+  							<p>The cat sat on the roof and the dog was smelly~</p>
+  							<p>Beer and pizza are an american combo</p>
+  						</div>
+  					);
+  				}
+  			});
+
+  			var Contact = React.createClass({
+  				render: function() {
+  					return (
+  						<div>
+  							<h2>Got Questions?</h2>
+  							<p>Just post on our forms <a href="http://forum.kirupa.com">forum</a></p>
+  						</div>
+  					);
+  				}
+  			});
+
+  			var Stuff = React.createClass({
+  				render: function() {
+  					return (
+  						<div>
+  							<h2>Stuff</h2>
+  							<p>Turltes</p>
+  							<ol>
+						        <li>1 turtle</li>
+						        <li>2 turtle</li>
+						        <li>3 turtle</li>
+						        <li>4 turtle</li>
+					            <li>More turtle</li>
+					        </ol>
+  						</div>
+  					);
+  				}
+  			});
+
+  			var App = React.createClass({
+  				render: function() {
+  					return (
+  						<div>
+  							<h1>SPA-React</h1>
+  							<ul className="header">
+  								<li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+  								<li><Link to="/stuff" activeClassName="active">Stuff</Link></li>
+  								<li><Link to="/contact" activeClassName="active">Contact</Link></li>
+  							</ul>
+  							<div className="content">
+  								{this.props.children}
+  							</div>
+  						</div>
+  					)
+  				}
+  			});
+
+  			ReactDOM.render(
+  				<Router>
+  					<Route path="/" component={App}>
+  						<IndexRoute component={Home}/>
+  						<Route path="stuff" component={Stuff} />
+  						<Route path="contact" component={Contact} />
+   					</Route>
+  				</Router>,
+
+  				destination
+  			);
+  		</script>
+
+  	</body>
+  </head>
